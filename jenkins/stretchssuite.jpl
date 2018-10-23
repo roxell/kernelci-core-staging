@@ -1,0 +1,13 @@
+@Library('kernelci') _
+import org.kernelci.debian.RootFS
+
+def r = new RootFS()
+
+def config = ['name':"stretchssuite",
+              'arch_list':["amd64"],
+              'debian_release':"stretch",
+              'extra_packages':"bash bc coreutils gawk g++ gcc fio libaio1 \
+                                libaio-dev sysstat",
+              'script':"scripts/stretchssuite.sh"]
+
+r.buildImage(config)
