@@ -1,0 +1,22 @@
+- test:
+    timeout:
+      minutes: 10
+    definitions:
+    - repository:
+        metadata:
+          format: Lava-Test Test Definition 1.0
+          name: ssuite
+          description: "ssuite - I/O performance test plan"
+          os:
+          - debian
+          scope:
+          - functional
+        run:
+          steps:
+          - cd /opt/ssuite
+          - cd run_multiple_benchmarks
+          - sudo ./run_main_benchmarks.sh "throughput replayed-startup" "bfq mq-deadline" raw
+      lava-signal: kmsg
+      from: inline
+      name: ssuite-IOperformance
+      path: inline/ssuite.yaml

@@ -1,0 +1,23 @@
+{% extends 'base/kernel-ci-base-tftp-deploy.jinja2' %}
+{% block metadata %}
+{{ super() }}
+{% endblock %}
+{% block main %}
+{{ super() }}
+{% endblock %}
+{% block actions %}
+{%- block deploy %}
+{{ super () }}
+{%- endblock %}
+
+- boot:
+    timeout:
+      minutes: 5
+    method: ipxe
+    commands: nfs
+    prompts:
+      - '{{ rootfs_prompt }}'
+
+{% include 'IOperformance/ssuite.jinja2' %}
+
+{% endblock %}
