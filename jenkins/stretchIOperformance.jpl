@@ -1,0 +1,12 @@
+@Library('kernelci') _
+import org.kernelci.debian.RootFS
+
+def r = new RootFS()
+
+def config = ['name':"stretchIOperformance",
+              'arch_list':["amd64"],
+              'debian_release':"stretch",
+              'extra_packages':"bc gawk g++ gcc fio libaio-dev sysstat",
+              'script':"scripts/stretchIOperformance.sh"]
+
+r.buildImage(config)
