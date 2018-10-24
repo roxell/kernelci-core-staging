@@ -21,6 +21,11 @@ file_system_types:
     arch_map:
       armhf: {arch: arm}
 
+  debian_stretchIOperformnace:
+    url: 'http://storage.kernelci.org/images/rootfs/debian/stretchIOperformance/<TODO_CHANGE_VERSION>'
+    arch_map:
+      amd64: {arch: x86}
+
 
 file_systems:
 
@@ -42,6 +47,10 @@ file_systems:
 
   debian_stretchtests_ramdisk:
     type: debian_stretchtests
+    ramdisk: '{arch}/rootfs.cpio.gz'
+
+  debian_stretchIOperformance_ramdisk:
+    type: debian_stretchIOperformance
     ramdisk: '{arch}/rootfs.cpio.gz'
 
 
