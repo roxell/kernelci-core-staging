@@ -1,6 +1,7 @@
 {{- $architecture := or .architecture "arm64" -}}
 {{- $basename := or .basename "." -}}
 {{- $extra_packages := or .extra_packages "" -}}
+{{- $imagesize := or .imagesize "1G" -}}
 {{- $suite := or .suite "stretch" -}}
 {{- $script := or .script "scripts/nothing.sh" -}}
 {{- $test_overlay := .test_overlay -}}
@@ -105,7 +106,7 @@ actions:
 
   - action: image-partition
     imagename: rootfs.ext4
-    imagesize: 1GB
+    imagesize: {{ $imagesize }}
     partitiontype: msdos
     mountpoints:
       - mountpoint: /
