@@ -1,0 +1,14 @@
+@Library('kernelci') _
+import org.kernelci.debian.RootFS
+
+def r = new RootFS()
+
+def config = ['name':"stretch-libgpiod",
+              'arch_list':["arm64", "i386", "amd64"],
+              'debian_release':"stretch",
+              'extra_packages':"kmod python3 udev ",
+              'extra_packages_remove':"e2fsprogs e2fslibs"
+              'imagesize':"4G",
+              'script':"scripts/stretch-libgpiod.sh"]
+
+r.buildImage(config)
