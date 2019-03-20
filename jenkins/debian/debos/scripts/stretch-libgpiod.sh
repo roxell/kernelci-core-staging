@@ -38,8 +38,10 @@ TESTDIR=libgpiod
 #TEST_REPO=https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git
 TEST_REPO=https://git.linaro.org/people/anders.roxell/libgpiod.git
 
-git clone --depth=1 ${TEST_REPO}
+#git clone --depth=1 ${TEST_REPO}
+git clone ${TEST_REPO}
 cd ${TESTDIR}
+git checkout testing-v2
 
 echo '    {"name": "${TESTDIR}", "git_url": "${TEST_REPO}", "git_commit": ' \"`git rev-parse HEAD`\" '}' >> $BUILDFILE
 
